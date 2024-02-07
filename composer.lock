@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb8518d22ec459d770c27ab2b8996437",
+    "content-hash": "6846403805febb8546e95216f7667e80",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17725,6 +17725,155 @@
                 "source": "https://github.com/magento/magento-zend-pdf/tree/1.16.3"
             },
             "time": "2023-08-25T12:52:21+00:00"
+        },
+        {
+            "name": "mageplaza/module-core",
+            "version": "1.5.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "a42f6ee586c917aaa407a0e97f848c7368867b0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/a42f6ee586c917aaa407a0e97f848c7368867b0f",
+                "reference": "a42f6ee586c917aaa407a0e97f848c7368867b0f",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "support": {
+                "source": "https://github.com/mageplaza/module-core/tree/v1.5.6"
+            },
+            "time": "2024-01-19T09:41:41+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "131fdd748a429a80417095bdc46f03fee9668b62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/131fdd748a429a80417095bdc46f03fee9668b62",
+                "reference": "131fdd748a429a80417095bdc46f03fee9668b62",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.5.5"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "support": {
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.10"
+            },
+            "time": "2023-12-20T08:19:14+00:00"
+        },
+        {
+            "name": "markshust/magento2-module-disabletwofactorauth",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markshust/magento2-module-disabletwofactorauth.git",
+                "reference": "224c68d85479938f06ab2400148778575784871c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markshust/magento2-module-disabletwofactorauth/zipball/224c68d85479938f06ab2400148778575784871c",
+                "reference": "224c68d85479938f06ab2400148778575784871c",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "^103",
+                "php": "^7||^8"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MarkShust\\DisableTwoFactorAuth\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The DisableTwoFactorAuth module provides the ability to disable two-factor authentication.",
+            "support": {
+                "issues": "https://github.com/markshust/magento2-module-disabletwofactorauth/issues",
+                "source": "https://github.com/markshust/magento2-module-disabletwofactorauth/tree/2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/markshust",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-24T17:11:14+00:00"
         },
         {
             "name": "monolog/monolog",
