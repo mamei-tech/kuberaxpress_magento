@@ -148,7 +148,7 @@ bin/magento config:set twofactorauth/general/enable 0
 
 To disable 2FA in developer mode run:
 ```bash
-bin/magento config:set twofactorauth/general/enable 0
+bin/magento config:set twofactorauth/general/disable_in_developer_mode 0
 ```
 
 ### Another via to access the admin for the first time without having email - 2fa
@@ -179,7 +179,7 @@ register_name: kubera
 register_email: admin@kuberaxpress.com
 ```
 
-#### Activate SMTP Auth Office 386
+### Activate SMTP Auth Office 386
 
 1. Disable smtp auth in your organization in the EAC
     - To disable SMTP AUTH globally in your organization in the EAC, go to the `Settings > Mail Flow` settings page and toggle the setting labeled Turn off SMTP AUTH protocol for your organization.
@@ -188,9 +188,9 @@ register_email: admin@kuberaxpress.com
 2. In Magento admin
    - Go to the menu "Stores> Settings - Configuration> Store Email Addresses" and modify all sender email by `admin@kuberaxpress.com` and then `Save Config`
 
-   - Go to the menu "Stores> SMTP - Configuration > SMTP Configuration Options" and load the __Office386__ default configuration in `Load Settings` button, then changes protocol to TLS and select LOGIN Authentication and add User and password from Email Office386. Then Send test email.
-
    - Go to the menu "Stores> Settings - Configuration" in the left lateral menu Go to the "Advanced > System" section and configure the "Mail Sending Settings" section similar to the steps above.
+
+   - Go to the menu "Stores> SMTP - Configuration > SMTP Configuration Options" and load the __Office386__ default configuration in `Load Settings` button, then changes protocol to TLS and select LOGIN Authentication and add User and password from Email Office386. Then Send test email.
 
 Then you can activate the 2FA for the Developer Mode and try it to see if you get the configuration mail.
 
@@ -218,6 +218,45 @@ We add the following line:
 ```
 This will execute the renew-ssl-certbot script every Monday at 3am.
 
+### Disable a module
+```bash
+bin/magento module:disable a_module_name
+```
+
+### List of enabled modules
+```bash
+bin/magento module:status
+```
+
+### Remove a module
+
+#### (Simple removal):
+```bash
+bin/composer remove module_name
+```
+
+#### Removing with Composer (complex):
+```bash
+bin/magento module:uninstall module_name
+```
+
+### Manual static content deployment
+```bash
+bin/magento setup:static-content:deploy -f
+```
+
+### To generate classes
+```bash
+bin/magento setup:di:compile
+```
+
+### Errors
+
+If you use version `2.4.6-p3` or Magento higher you must install this module to be able to send SMTP emails:
+```bash
+bin/composer require laminas/laminas-zendframework-bridge:1.8.0
+```
+
 #### docs
 - https://blog.jarrousse.org/2022/04/09/an-elegant-way-to-use-docker-compose-to-obtain-and-renew-a-lets-encrypt-ssl-certificate-with-certbot-and-configure-the-nginx-service-to-use-it/
 - https://phoenixnap.com/kb/letsencrypt-docker
@@ -225,3 +264,4 @@ This will execute the renew-ssl-certbot script every Monday at 3am.
 - https://github.com/mageplaza/magento-2-smtp
 - https://www.courier.com/guides/magento-notifications/
 - https://www.mgt-commerce.com/tutorial/magento-2-factor-authentication/
+- https://mirasvit.com/knowledge-base/how-to-remove-magento-2-extension.html
