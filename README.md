@@ -12,7 +12,7 @@ cd $_
 
 ### Download the Docker Compose configs:
 ```bash
-git clone https://github.com/mamei-tech/kuberaxpress_dockerconfigs.git kuberaxpress-prod
+git clone https://github.com/mamei-tech/kuberaxpress_config.git kuberaxpress-prod
 ```
 
 > Note: if dev environment run: git clone --branch dev https://github.com/mamei-tech/kuberaxpress_dockerconfigs.git kuberaxpress-dev
