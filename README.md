@@ -82,7 +82,12 @@ bin/cli git checkout 2.4-develop
 
 ### Run the setup installer for Magento:
 
-#### Create a DNS host entry and setup Magento base url
+#### Install
+```bash
+bin/setup-install kuberaxpress.com
+```
+
+#### To create a DNS host entry and setup Magento base url
 ```bash
 bin/setup-domain kuberaxpress.com
 ```
