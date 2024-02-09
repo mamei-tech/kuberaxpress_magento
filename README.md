@@ -82,21 +82,16 @@ bin/cli git checkout 2.4-develop
 
 ### Run the setup installer for Magento:
 
-#### Install
+> Note: If you do not have at least 6GB RAM configured for docker, you must manually run the bin/setup script steps.
+
+If you have at least 6 GB of RAM configured for Docker, run:
 ```bash
-bin/setup-install kuberaxpress.com
+bin/setup kuberaxpress.com
 ```
 
-#### To create a DNS host entry and setup Magento base url
-```bash
-bin/setup-domain kuberaxpress.com
-```
+> Note: if dev environment run: `bin/setup dev.kuberaxpress.com`
 
-> Note: if dev environment run: `bin/setup-domain dev.kuberaxpress.com`
-
-> Important: `bin/setup-install your_domain` 
-
-open https://magento.test
+open https://you_domain_name
 
 
 ## To set up multiple websites with Nginx
@@ -128,12 +123,44 @@ Run the following command to clean the config and full_page caches:
 bin/magento cache:clean config full_page
 ```
 
-# Take a backup of your existing database:
+### Take a backup of your existing database:
 ```bash
-bin/mysqldump > ./backup/kubera.main.sql
+bin/mysqldump > ./backup/backup_filename.sql
+```
+
+### Zip backup
+```bash
+zip -9 -r -q ./backup/backup_filename.sql.zip ./backup/backup_filename.sql
+```
+
+### Unzip backup
+```bash
+unzip ./backup/backup_filename.sql.zip
 ```
 
 ## Docs
+
+### Magento 2 Modes --- Default, Developer, and Production ---
+
+To learn more you can visit the following link: [Magento 2 Modes](https://www.mgt-commerce.com/tutorial/magento-2-modes/).
+
+#### How to Check which Magento 2 Mode is Used
+You need to run the following command:
+```bash
+bin/magento deploy:mode:show
+```
+
+#### Setting Magento 2 Production Mode
+You can enable production mode by running the below command:
+```bash
+bin/magento deploy:mode:set production
+```
+
+#### Setting Magento 2 Developer Mode
+You need to run the command below:
+```bash
+bin/magento deploy:mode:set developer
+```
 
 ### Steps to access the admin for the first time without having email - 2fa
 
@@ -262,11 +289,12 @@ If you use version `2.4.6-p3` or Magento higher you must install this module to 
 bin/composer require laminas/laminas-zendframework-bridge:1.8.0
 ```
 
-#### docs
-- https://blog.jarrousse.org/2022/04/09/an-elegant-way-to-use-docker-compose-to-obtain-and-renew-a-lets-encrypt-ssl-certificate-with-certbot-and-configure-the-nginx-service-to-use-it/
-- https://phoenixnap.com/kb/letsencrypt-docker
-- (*) https://medium.com/@hugodelatte/configuring-an-https-server-with-nginx-and-certbot-d3abe6121af7
-- https://github.com/mageplaza/magento-2-smtp
-- https://www.courier.com/guides/magento-notifications/
-- https://www.mgt-commerce.com/tutorial/magento-2-factor-authentication/
-- https://mirasvit.com/knowledge-base/how-to-remove-magento-2-extension.html
+#### more
+- [docker, lets encrypt and certbot](https://blog.jarrousse.org/2022/04/09/an-elegant-way-to-use-docker-compose-to-obtain-and-renew-a-lets-encrypt-ssl-certificate-with-certbot-and-configure-the-nginx-service-to-use-it/)
+- [letsencrypt docker](https://phoenixnap.com/kb/letsencrypt-docker)
+- (*) [configuring a https server with nginx and certbot](https://medium.com/@hugodelatte/configuring-an-https-server-with-nginx-and-certbot-d3abe6121af7) 
+- [magento 2 and smtp](https://github.com/mageplaza/magento-2-smtp)
+- [magento notifications](https://www.courier.com/guides/magento-notifications/)
+- [magento 2 factor-authentication](https://www.mgt-commerce.com/tutorial/magento-2-factor-authentication/)
+- [how to remove magento2 extension](https://mirasvit.com/knowledge-base/how-to-remove-magento-2-extension.html)
+- [magento 2 modes](https://www.mgt-commerce.com/tutorial/magento-2-modes/)
