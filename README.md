@@ -218,7 +218,7 @@ register_email: admin@kuberaxpress.com
     - Follow the steps of this doc: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#disable-smtp-auth-in-your-organization
 
 2. In Magento admin
-   - Go to the menu "Stores> Settings - Configuration> Store Email Addresses" and modify all sender email by `admin@kuberaxpress.com` and then `Save Config`
+   - Go to the menu "Stores> Settings - Configuration > General - Store Email Adressess" and modify all sender email by `admin@kuberaxpress.com` and then `Save Config`
 
    - Go to the menu "Stores> Settings - Configuration" in the left lateral menu Go to the "Advanced > System" section and configure the "Mail Sending Settings" section similar to the steps above.
 
