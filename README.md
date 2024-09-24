@@ -253,7 +253,7 @@ Then you can activate the 2FA for the Developer Mode and try it to see if you ge
 #### Running the container
 To run the Certbot container, execute the below script in your host machine:
 ```bash
-script/setup-ssl-certbot
+./script/setup-ssl-certbot kuberaxpress.com
 ```
 
 #### Automate Certificate Renewal
