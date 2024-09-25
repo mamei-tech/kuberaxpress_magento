@@ -180,6 +180,11 @@ You need to run the command below:
 bin/magento deploy:mode:set developer
 ```
 
+#### Show modules installed
+```bash
+bin/magento module:status
+```
+
 ### Steps to access the admin for the first time without having email - 2fa
 
 Install the Magento2-Module-DisableTwofactorah module:
@@ -317,3 +322,38 @@ bin/composer require laminas/laminas-zendframework-bridge:1.8.0
 - [magento 2 factor-authentication](https://www.mgt-commerce.com/tutorial/magento-2-factor-authentication/)
 - [how to remove magento2 extension](https://mirasvit.com/knowledge-base/how-to-remove-magento-2-extension.html)
 - [magento 2 modes](https://www.mgt-commerce.com/tutorial/magento-2-modes/)
+
+
+
+## install marketplace module
+1. Unzip the respective extension zip.
+```bash
+unzip magento2_marketplace-hash_number_2.4.7-5.0.9.zip
+```
+2. Then move "app" folder (inside "src" folder) into magento root directory.
+```bash
+cp -R magento2_marketplace-hash_number_2.4.7-5.0.9/magento2_marketplace-hash_number/src/* kuberaxpress-prod/src/
+```
+
+```bash
+cd kuberaxpress-prod/
+```
+
+```bash
+bin/copytocontainer --all
+```
+
+Run Following Command via terminal
+-----------------------------------
+```bash
+bin/magento setup:upgrade 
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy
+bin/magento queue:consumers:start admin.news.published &
+bin/magento queue:consumers:start seller.product.lowstock &
+```
+
+Flush the cache and reindex all.
+```bash
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
+```
