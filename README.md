@@ -113,15 +113,26 @@ Generate a new certificate valid for the following names (ex: `kuberaxpress.com 
 bin/setup-ssl kuberaxpress.com dev.kuberaxpress.com
 ```
 
-### Clean the Cache
+### Disable the Cache
+```bash
+bin/magento cache:disable
+```
+
+### Flush the Cache
 ```bash
 bin/magento cache:flush
 ```
-
+### Clean the Cache
 Run the following command to clean the config and full_page caches:
 ```bash
 bin/magento cache:clean config full_page
 ```
+
+### Re-index, Clean, Flush
+```
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
+```
+
 
 ### Take a backup of your existing database:
 ```bash
@@ -137,6 +148,13 @@ zip -9 -r -q ./backup/backup_filename.sql.zip ./backup/backup_filename.sql
 ```bash
 unzip ./backup/backup_filename.sql.zip
 ```
+
+### Generate static assets for the Spanish locale (es_ES)
+```bash
+bin/magento setup:static-content:deploy --theme Magento/backend es_ES
+```
+
+> Note: if dev environment run: `bin/magento setup:static-content:deploy -f --theme Magento/backend es_ES`
 
 ## Docs
 
@@ -218,7 +236,7 @@ register_email: admin@kuberaxpress.com
     - Follow the steps of this doc: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#disable-smtp-auth-in-your-organization
 
 2. In Magento admin
-   - Go to the menu "Stores> Settings - Configuration> Store Email Addresses" and modify all sender email by `admin@kuberaxpress.com` and then `Save Config`
+   - Go to the menu "Stores> Settings - Configuration > General - Store Email Adressess" and modify all sender email by `admin@kuberaxpress.com` and then `Save Config`
 
    - Go to the menu "Stores> Settings - Configuration" in the left lateral menu Go to the "Advanced > System" section and configure the "Mail Sending Settings" section similar to the steps above.
 
@@ -235,7 +253,7 @@ Then you can activate the 2FA for the Developer Mode and try it to see if you ge
 #### Running the container
 To run the Certbot container, execute the below script in your host machine:
 ```bash
-script/setup-ssl-certbot
+./script/setup-ssl-certbot kuberaxpress.com
 ```
 
 #### Automate Certificate Renewal
@@ -290,6 +308,7 @@ bin/composer require laminas/laminas-zendframework-bridge:1.8.0
 ```
 
 #### more
+- [install ES locale](./README-HOW-INSTALL-ES-LOCALE.md)
 - [docker, lets encrypt and certbot](https://blog.jarrousse.org/2022/04/09/an-elegant-way-to-use-docker-compose-to-obtain-and-renew-a-lets-encrypt-ssl-certificate-with-certbot-and-configure-the-nginx-service-to-use-it/)
 - [letsencrypt docker](https://phoenixnap.com/kb/letsencrypt-docker)
 - (*) [configuring a https server with nginx and certbot](https://medium.com/@hugodelatte/configuring-an-https-server-with-nginx-and-certbot-d3abe6121af7) 
