@@ -41,33 +41,29 @@ Install the Spanish language pack via composer is never easier.
 With Marketing Automation (recommend):
 
 ```
-composer require mageplaza/magento-2-spanish-language-pack:dev-master mageplaza/module-smtp 
-php bin/magento setup:static-content:deploy es_ES
-php bin/magento indexer:reindex
-php bin/magento cache:clean
-php bin/magento cache:flush
+bin/composer require mageplaza/magento-2-spanish-language-pack:dev-master mageplaza/module-smtp
+bin/magento setup:static-content:deploy --theme Magento/backend -f es_ES 
+bin/magento setup:static-content:deploy -f es_ES
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
 ```
 
 Without Marketing Automation:
 
 ```
-composer require mageplaza/magento-2-spanish-language-pack:dev-master
-php bin/magento setup:static-content:deploy es_ES
-php bin/magento indexer:reindex
-php bin/magento cache:clean
-php bin/magento cache:flush
+bin/composer require mageplaza/magento-2-spanish-language-pack:dev-master
+bin/magento setup:static-content:deploy --theme Magento/backend -f es_ES
+bin/magento setup:static-content:deploy -f es_ES
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
 ```
 
 
 **Update  Spanish pack**:
 
 ```
-composer update mageplaza/magento-2-spanish-language-pack:dev-master
-php bin/magento setup:static-content:deploy es_ES
-php bin/magento indexer:reindex
-php bin/magento cache:clean
-php bin/magento cache:flush
-
+bin/composer update mageplaza/magento-2-spanish-language-pack:dev-master
+bin/magento setup:static-content:deploy --theme Magento/backend -f es_ES
+bin/magento setup:static-content:deploy -f es_ES
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
 ```
 
 #### Authentication required (If any)
@@ -83,8 +79,39 @@ Public Key: c7af1bfc9352e9c986637eec85ed53af
 Private Key: 17e1b72ea5f0b23e9dbfb1f68dc12b53
 ```
 
+#### How to change the language in Admin Panel Magento 2
 
+##### Change store frontend language
+Let’s assume you need to change the default language settings of the platform. What is the first thing you do?
 
+- Log in to the Admin Panel.
+- Navigate to the Stores > Configuration.
+- Choose Default Config, then the language for the Main Website/ Main Website Store.
+- Select one of the offered languages in the drop-down menu and click the OK and Save Config buttons.
+
+##### Change admin panel language
+- Log in to your Admin Panel.
+- Go to the System> All Users
+- Click admin and navigate to Interface Locale drop-down menu
+- Choose a desired language, click the Save User button and Flush Cache
+
+> Note: see [change-default-language-in-magento-2](https://amasty.com/knowledge-base/change-default-language-in-magento-2.html.) 
+
+### Errors
+#### Unable to serialize value. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+If the deployment process throws the error _"Unable to serialize value. Error: Malformed UTF-8 characters, possibly incorrectly encoded"_, then you must modify the serialization json file, you can go look for it in our folder
+
+```bash
+cp Json.php ~/Sites/kuberaxpress-prod/src/vendor/magento/framework/Serialize/Serializer/
+```
+
+```bash
+bin/copytocontainer vendor/magento/framework/Serialize/Serializer/Json.php
+```
+Then: 
+```bash
+bin/magento setup:static-content:deploy -f es_ES
+```
 ### ✓ Method #2. Copy & Paste method (Not recommended)
 
 This method suitable for non-technical people such as merchants. Just download the package then flush cache.

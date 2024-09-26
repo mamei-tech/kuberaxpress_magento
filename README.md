@@ -46,7 +46,7 @@ Initial copy will take a few minutes...
 bin/copytocontainer --all
 ```
 
-# If your vendor directory was empty, populate it with:
+#### If your vendor directory was empty, populate it with:
 ```bash
 bin/composer install
 ```
@@ -105,56 +105,6 @@ git pull
 docker-compose build
 bin/restart
 ```
-
-## Other commands
-
-Generate a new certificate valid for the following names (ex: `kuberaxpress.com dev.kuberaxpress.com`)
-```bash
-bin/setup-ssl kuberaxpress.com dev.kuberaxpress.com
-```
-
-### Disable the Cache
-```bash
-bin/magento cache:disable
-```
-
-### Flush the Cache
-```bash
-bin/magento cache:flush
-```
-### Clean the Cache
-Run the following command to clean the config and full_page caches:
-```bash
-bin/magento cache:clean config full_page
-```
-
-### Re-index, Clean, Flush
-```
-bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
-```
-
-
-### Take a backup of your existing database:
-```bash
-bin/mysqldump > ./backup/backup_filename.sql
-```
-
-### Zip backup
-```bash
-zip -9 -r -q ./backup/backup_filename.sql.zip ./backup/backup_filename.sql
-```
-
-### Unzip backup
-```bash
-unzip ./backup/backup_filename.sql.zip
-```
-
-### Generate static assets for the Spanish locale (es_ES)
-```bash
-bin/magento setup:static-content:deploy --theme Magento/backend es_ES
-```
-
-> Note: if dev environment run: `bin/magento setup:static-content:deploy -f --theme Magento/backend es_ES`
 
 ## Docs
 
@@ -273,6 +223,62 @@ We add the following line:
 ```
 This will execute the renew-ssl-certbot script every Monday at 3am.
 
+## Other commands
+
+Generate a new certificate valid for the following names (ex: `kuberaxpress.com dev.kuberaxpress.com`)
+```bash
+bin/setup-ssl kuberaxpress.com dev.kuberaxpress.com
+```
+
+### Disable the Cache
+```bash
+bin/magento cache:disable
+```
+
+### Flush the Cache
+```bash
+bin/magento cache:flush
+```
+### Clean the Cache
+Run the following command to clean the config and full_page caches:
+```bash
+bin/magento cache:clean config full_page
+```
+
+### Re-index, Clean, Flush
+```
+bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
+```
+
+### Take a backup of your existing database:
+```bash
+bin/mysqldump > ./backup/backup_filename.sql
+```
+
+### restore database
+Use the _bin/mysql_ script to import a database:
+```bash
+bin/mysql < ./backup/kubera.main.sql
+```
+
+### Zip backup
+```bash
+zip -9 -r -q ./backup/backup_filename.sql.zip ./backup/backup_filename.sql
+```
+
+### Unzip backup
+```bash
+unzip ./backup/backup_filename.sql.zip
+```
+
+### Generate static assets for the Spanish locale (es_ES)
+```bash
+bin/magento setup:static-content:deploy --theme Magento/backend es_ES
+```
+
+> Note: if dev environment run: `bin/magento setup:static-content:deploy -f --theme Magento/backend es_ES`
+
+
 ### Disable a module
 ```bash
 bin/magento module:disable a_module_name
@@ -326,13 +332,20 @@ bin/composer require laminas/laminas-zendframework-bridge:1.8.0
 
 
 ## install marketplace module
+Remember to use the correct version of the module
+You can know the version of Magento by running the following command:
+```bash
+bin/magento-version
+```
+
+
 1. Unzip the respective extension zip.
 ```bash
-unzip magento2_marketplace-hash_number_2.4.7-5.0.9.zip
+unzip magento2_marketplace-hash_number_2.4.x-5.0.8-p1
 ```
 2. Then move "app" folder (inside "src" folder) into magento root directory.
 ```bash
-cp -R magento2_marketplace-hash_number_2.4.7-5.0.9/magento2_marketplace-hash_number/src/* kuberaxpress-prod/src/
+cp -R magento2_marketplace-hash_number_2.4.x-5.0.8-p19/magento2_marketplace-hash_number/src/* kuberaxpress-prod/src/
 ```
 
 ```bash
