@@ -10,11 +10,7 @@ Read more [Magento 2 Spanish Language Pack](https://www.mageplaza.com/magento-2-
 
 1. Language Package Process
 2. Install Spanish Language Pack
-3. How to active Spanish language pack
-4. How to contribute
-5. Supported Magento versions
-6. Notes
-7. Language package authors
+3. How to change the language in Admin Panel Magento 2
 
 ## 1. Language Package Process
 
@@ -79,7 +75,7 @@ Public Key: c7af1bfc9352e9c986637eec85ed53af
 Private Key: 17e1b72ea5f0b23e9dbfb1f68dc12b53
 ```
 
-#### How to change the language in Admin Panel Magento 2
+## How to change the language in Admin Panel Magento 2
 
 ##### Change store frontend language
 Let’s assume you need to change the default language settings of the platform. What is the first thing you do?
@@ -112,107 +108,11 @@ Then:
 ```bash
 bin/magento setup:static-content:deploy -f es_ES
 ```
-### ✓ Method #2. Copy & Paste method (Not recommended)
-
-This method suitable for non-technical people such as merchants. Just download the package then flush cache.
-
-**Overview**
-
-- Step 1: Download the Spanish language pack
-- Step 2: Unzip Spanish pack
-- Step 3: Flush Magento 2 Cache
-
-#### Step 1 : Download the Spanish language pack
-
-You can download the language pack from above link
-
-#### Step 2: Unzip Spanish pack
-
-Unzip the Spanish language pack to Magento 2 root folder. In this guide, we extract to `/var/www/html/`
-Your Magento 2 root folder can be: `/home/account_name/yourstore.com/public_html/`
-
-```
-unzip master.zip app/i18n/Mageplaza/
-```
-
-Rename folder `magento-2-spanish-language-pack` to `es_es`.
-
-
-You also can unzip locally and upload them to Magento 2 root folder.
-
-#### Step 3: Flush Magento 2 Cache
-
-Follow this guide to [Flush Cache on your Magento 2 store](https://www.mageplaza.com/kb/how-flush-enable-disable-cache.html)
-
-
-### ✓ Method #3. Download and install manually (Not recommended)
-
-To download and install Spanish pack manually, you have to access to your server via FTP or SFTP.
-
-#### Step 1: Download the package
-
-- [Download .zip](https://github.com/mageplaza/magento-2-spanish-language-pack/archive/master.zip)
-- [Download .tar.gz](https://github.com/mageplaza/magento-2-spanish-language-pack/tarball/master)
-
-#### Step 1: Unzip and upload
-
-Unzip the compressed file and upload file `master.zip` into `app/i18n/Mageplaza/es_es/`
-
-See this screenshot:
-
-![Spanish pack](https://cdn3.mageplaza.com/media/general/language-pack.png)
-
-This language pack code is: **es_es**
-
-#### Step 2: Flush cache
-
-Follow this guide to [Flush Cache on your Magento 2 store](https://www.mageplaza.com/kb/how-flush-enable-disable-cache.html)
-
-
-## 3. How to Active the Spanish language pack 
-
-Now time to active the Spanish language pack for your Magento 2 store. From Magento 2 admin panel, navigate to `Stores > Configuration > General > Locale Options`
-![{{Magento 2 Spanish language pack}}](https://cdn.mageplaza.com/media/general/aPSUA0l.png)
-
-
-## 4. How to contribute
-
-Contribute to this language at :
-- [On Crowdin](https://crowdin.com/project/magento-2): It takes time to approve your contribution by Magento team.
-- [On Github](https://github.com/mageplaza/magento-2-spanish-language-pack/blob/master/HOW-TO-CONTRIBUTE.md): It's faster, our team will approve it after you send pull request.
-
-
-## 5. Supported Magento versions
-
-It supports all Magento 2 versions include [Magento 2 open-source](https://www.mageplaza.com/download-magento/) (Community), Magento 2 Commerce (EE), Magento Cloud, Magento B2B, Magento MSI.
-
-
-- Magento v2.0.x
-- Magento v2.1.x
-- Magento v2.2.x
-- Magento v2.3.x
-- Magento v2.4.x
-
-
-
-## 6. Notes 
-
-- This project automatically updates weekly from Crowdin.
-- Any question, issue please [create a new issue](https://github.com/mageplaza/magento-2-spanish-language-pack/issues/new)
-
-## 7. Language package authors
-
-- [Magento official translations project for Magento 2](https://crowdin.com/project/magento-2)
-- Magento Community
-- Language packages built by [Mageplaza team](https://www.mageplaza.com/)
-
 
 ## 8. References 
 
 - https://www.mageplaza.com/magento-2-spanish-language-pack.html
 - https://crowdin.com/project/magento-2
-
-
 
 ## Mageplaza extensions on Magento Marketplace, Github
 
