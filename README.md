@@ -208,7 +208,7 @@ Then you can activate the 2FA for the Developer Mode and try it to see if you ge
 #### Running the container
 To run the Certbot container, execute the below script in your host machine:
 ```bash
-./script/setup-ssl-certbot kuberaxpress.com
+./scripts/setup-ssl-certbot kuberaxpress.com
 ```
 
 #### Automate Certificate Renewal
@@ -219,7 +219,7 @@ crontab -e
 ```
 We add the following line:
 ```text
-0 3 * * mon /home/express/Sites/kuberaexpress/script/renew-ssl-certbot
+0 3 * * mon /home/express/Sites/kuberaexpress/scripts/renew-ssl-certbot
 ```
 This will execute the renew-ssl-certbot script every Monday at 3am.
 
@@ -328,45 +328,3 @@ bin/composer require laminas/laminas-zendframework-bridge:1.8.0
 - [magento 2 factor-authentication](https://www.mgt-commerce.com/tutorial/magento-2-factor-authentication/)
 - [how to remove magento2 extension](https://mirasvit.com/knowledge-base/how-to-remove-magento-2-extension.html)
 - [magento 2 modes](https://www.mgt-commerce.com/tutorial/magento-2-modes/)
-
-
-
-## install marketplace module
-Remember to use the correct version of the module
-You can know the version of Magento by running the following command:
-```bash
-bin/magento-version
-```
-
-
-1. Unzip the respective extension zip.
-```bash
-unzip magento2_marketplace-hash_number_2.4.x-5.0.8-p1
-```
-2. Then move "app" folder (inside "src" folder) into magento root directory.
-```bash
-cp -R magento2_marketplace-hash_number_2.4.x-5.0.8-p19/magento2_marketplace-hash_number/src/* kuberaxpress-prod/src/
-```
-
-```bash
-cd kuberaxpress-prod/
-```
-
-```bash
-bin/copytocontainer --all
-```
-
-Run Following Command via terminal
------------------------------------
-```bash
-bin/magento setup:upgrade 
-bin/magento setup:di:compile
-bin/magento setup:static-content:deploy
-bin/magento queue:consumers:start admin.news.published &
-bin/magento queue:consumers:start seller.product.lowstock &
-```
-
-Flush the cache and reindex all.
-```bash
-bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flush
-```
