@@ -28,10 +28,10 @@ docker compose -f compose.yaml up phpfpm -d
 > Note: if dev environment run: `docker compose -f compose.dev.yaml -f compose.yaml up phpfpm -d`
 
 ```bash
-git clone https://github.com/mamei-tech/kuberaxpress_magento.git src
+git clone https://github.com/mamei-tech/kuberaxpress_magento.git src -b prod-v2.4.7
 ```
 
-> Note: if dev environment run: git clone --branch dev https://github.com/mamei-tech/kuberaxpress_magento.git src
+> Note: if dev environment run: git clone --branch dev https://github.com/mamei-tech/kuberaxpress_magento.git src -b prod-v2.4.7
 
 ### Magento core development:
  Start some containers, copy files to them and then restart the containers:
