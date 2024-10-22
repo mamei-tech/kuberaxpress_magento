@@ -47,3 +47,5 @@ bin/magento indexer:reindex && bin/magento cache:clean && bin/magento cache:flus
 
 # docs
 https://webkul.com/blog/magento2-multi-vendor-marketplace/
+https://webkul.com/blog/magento2-marketplace-seller-central/
+https://marketplace.webkul.com/knowledgebase/assign-products-to-the-seller/#:~:text=Select%20the%20seller%20from%20the,list%20and%20save%20the%20configuration.
