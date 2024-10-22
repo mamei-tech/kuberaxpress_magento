@@ -15,7 +15,7 @@ cd $_
 git clone https://github.com/mamei-tech/kuberaxpress_config.git kuberaxpress-prod -b prod-v2.4.7
 ```
 
-> Note: if dev environment run: git clone --branch dev https://github.com/mamei-tech/kuberaxpress_dockerconfigs.git kuberaxpress-dev
+> Note: if dev environment run: git clone --branch dev https://github.com/mamei-tech/kuberaxpress_dockerconfigs.git kuberaxpress-dev -b prod-v2.4.7
 
 ```bash
 cd $_
